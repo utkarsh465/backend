@@ -1,0 +1,25 @@
+body{
+    padding: 0px;
+    margin-left: auto;
+    background-color:darkslategray;
+    text-align: center;
+}
+button{
+    margin-left: 1rem;
+    background-color: aqua;
+}
+.post{
+    background-color: bisque;
+    margin: 1rem;
+    padding: 1rem;
+    width: 25%;
+    border-radius: 1rem;
+    text-align: center;
+}
+.user{
+    font-style: italic;
+}
+.quora{
+    text-align: center;
+    color: brown;
+}
