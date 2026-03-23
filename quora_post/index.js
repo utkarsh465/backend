@@ -14,22 +14,22 @@ app.use(express.static(path.join(__dirname, "public")));          // css file ko
 
 let posts = [
     {
-        id:"1a",
+        id: "1a",
         username: "utkarsh",
         content: "hello everyone"
     },
     {
-        id:"2a",
+        id: "2a",
         username: "raj",
         content: "hello everyone"
     },
     {
-        id:"3a",
+        id: "3a",
         username: "harsh",
         content: "hello everyone"
     },
     {
-        id:"4a",        
+        id: "4a",
         username: "shilpee",
         content: "hello everyone"
     }
@@ -43,22 +43,24 @@ app.get("/posts/new", (req, res) => {
     res.render("new.ejs");
 })
 
-app.post("/posts",(req,res)=>{
-    let {username,content} = req.body;
+app.post("/posts", (req, res) => {
+    let { username, content } = req.body;
     // console.log(username,content);
-    posts.push({username,content});
+    posts.push({ username, content });
     res.redirect("/posts");
 })
 
-app.patch("/posts",(req,res)=>{
-    let {username,content} = req.body;
-    // console.log(username,content);
-    posts.push({username,content});
-    res.redirect("/posts");
-})
 
-app.get("/posts/:id",(req,res) =>{
-    res.render("show.ejs");
+
+app.get("/posts/:id", (req, res) => {
+    let { id } = req.params;
+   let post = posts.find((p) => id === p.id);
+
+   if (!post) {
+        return res.send("Post not found"); // ✅ stops EJS crash
+    }
+    
+    res.render("show.ejs",{post});
 })
 
 app.listen(port, () => {
