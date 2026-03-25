@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>new page</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <h1>create a new posts</h1>
-    <form action="/posts" method="post">
-        <input type="text" placeholder="enter username" name="username"> <br><br />
 
-        <textarea name="content" placeholder="write your post"></textarea> <br><br />
+    <div class="post">
+        <form action="/posts" method="post">
+            <input type="text" placeholder="enter username" name="username"> <br><br />
 
-        <button>submit</button>
-    </form>
+            <textarea name="content" placeholder="write your post"></textarea> <br><br />
+
+            <button>submit</button>
+        </form>
+    </div>
 </body>
+
 </html>
