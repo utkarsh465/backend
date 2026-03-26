@@ -6,6 +6,11 @@ const { v4: uuidv4 } = require('uuid');                                         
 
 const path = require('path');
 
+// use for edit or update route
+
+const methodOverride = require("method-override");
+app.use(methodOverride("_method"));
+
 
 app.use(express.urlencoded({ extended: true }));                                   // url encoded data ko parse karne ke liye
 
@@ -16,36 +21,36 @@ app.use(express.static(path.join(__dirname, "public")));                        
 
 let posts = [
     {
-        id:uuidv4(),
+        id: uuidv4(),
         username: "utkarsh",
         content: "hello everyone"
     },
     {
-        id:uuidv4(),
+        id: uuidv4(),
         username: "raj",
         content: "hello everyone"
     },
     {
-        id:uuidv4(),
+        id: uuidv4(),
         username: "harsh",
         content: "hello everyone"
     },
     {
-        id:uuidv4(),
+        id: uuidv4(),
         username: "shilpee",
         content: "hello everyone"
     }
 ]
 
 
-//index route
+//index route         using index.ejs
+
 
 app.get("/posts", (req, res) => {
     res.render("index.ejs", { posts });
 })
 
-//new route
-
+//new route  using new.ejs
 app.get("/posts/new", (req, res) => {
     res.render("new.ejs");
 })
@@ -54,25 +59,38 @@ app.post("/posts", (req, res) => {
     let { username, content } = req.body;
     // console.log(username,content);
     let id = uuidv4();
-    posts.push({ id,username, content });
+    posts.push({ id, username, content });
     res.redirect("/posts");
 })
 
-//show route
+
+
+//show route using show.ejs
 
 app.get("/posts/:id", (req, res) => {
     let { id } = req.params;
-   let post = posts.find((p) => id === p.id);
+    let post = posts.find((p) => id === p.id);
 
-   if (!post) {
+    if (!post) {
         return res.send("Post not found"); // ✅ stops EJS crash
     }
-    
-    res.render("show.ejs",{post});
+
+    res.render("show.ejs", { post });
 })
 
 
-// update route
+// update route   using edit.ejs
+
+
+// 1) npm install method-override 
+// 2)const methodOverride = require("method-override");
+// 3)app.use(methodOverride("_method"));
+
+app.get("/posts/:id/edit",(req,res) =>{
+    
+    res.render("edit.ejs");
+})
+
 
 
 

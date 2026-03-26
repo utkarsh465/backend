@@ -4,24 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quora posts</title>
+    <title>Quora Posts</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-    <h1 class="quora">Quora posts</h1>
-    <% for(post of posts){ %>
-        <div class="post">
-            <h1 class="user"> @<%= post.username %> </h1>
-            <h2 class="content"> <%=post.content %> </h2>
-            <form action="/posts/<%= post.id %>" method="get">
-                <button>view post</button> <br /><br />
+    <h1 class="quora">Quora</h1>
+    
+    <div class="posts-container">
+        <% for(post of posts){ %>
+            <div class="post">
+                <span class="user">@<%= post.username %></span>
+                <p class="content"><%= post.content %></p>
+                <div style="margin-top: 1rem;">
+                    <form action="/posts/<%= post.id %>" method="get" style="display: inline;">
+                        <button type="submit">View Post</button>
+                    </form>
+                </div>
+            </div>
+        <%}%>
+        
+        <div style="text-align: center; margin-top: 2rem;">
+            <form action="/posts/new" method="get">
+                <button type="submit" style="background-color: #282829;">Create New Post</button>
             </form>
         </div>
-    <%}%>
-    <form action="/posts/new" method="get">
-        <button>new user</button> <br /><br />
-    </form>
+    </div>
 </body>
 
 </html>

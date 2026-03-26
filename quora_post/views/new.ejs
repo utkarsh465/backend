@@ -4,20 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>new page</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Create New Post</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-    <h1>create a new posts</h1>
-
-    <div class="post">
+    <h1 class="quora">Quora</h1>
+    
+    <div class="form-card">
+        <h1>Create a new post</h1>
         <form action="/posts" method="post">
-            <input type="text" placeholder="enter username" name="username"> <br><br />
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter your username" name="username" required>
+            </div>
 
-            <textarea name="content" placeholder="write your post"></textarea> <br><br />
+            <div class="form-group">
+                <label for="content">What's on your mind?</label>
+                <textarea id="content" name="content" placeholder="Write your post here..." required></textarea>
+            </div>
 
-            <button>submit</button>
+            <button type="submit">Post</button>
         </form>
     </div>
 </body>
