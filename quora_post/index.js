@@ -86,14 +86,34 @@ app.get("/posts/:id", (req, res) => {
 // 2)const methodOverride = require("method-override");
 // 3)app.use(methodOverride("_method"));
 
-app.get("/posts/:id/edit",(req,res) =>{
-    
-    res.render("edit.ejs");
-})
+app.patch("/posts/:id", (req, res) => {
+    let { id } = req.params;
+    let newContent = req.body.content;
 
+    let post = posts.find((p) => String(p.id) === id);
 
+    if (!post) {
+        return res.send("Post not found");
+    }
 
+    post.content = newContent;
 
+    console.log(post);
+
+    res.redirect("/posts");
+});
+
+app.get("/posts/:id/edit", (req, res) => {
+    let { id } = req.params;
+
+    let post = posts.find((p) => String(p.id) === id);
+
+    if (!post) {
+        return res.send("Post not found");
+    }
+
+    res.render("edit.ejs", { post });
+});
 
 app.listen(port, () => {
     console.log("server is listening port 8080");

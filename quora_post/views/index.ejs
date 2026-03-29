@@ -22,7 +22,11 @@
                 <p class="content"><%= post.content %></p>
                 <div style="margin-top: 1rem;">
                     <form action="/posts/<%= post.id %>" method="get" style="display: inline;">
-                        <button type="submit">View Post</button>
+                        <button type="submit">View Post</button> <br /><br />
+                    </form>
+                    
+                    <form action="/posts/<%= post.id %>/edit" method="get" style="display: inline;">
+                        <button type="submit">edit</button>
                     </form>
                 </div>
             </div>
