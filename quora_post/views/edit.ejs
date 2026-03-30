@@ -3,18 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Route</title>
+    <title>Edit Post - Quora</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1>edit your Post</h1>
+    <div class="quora">Quora</div>
+    
+    <div class="posts-container">
+        <div class="form-card">
+            <h1>Edit your post</h1>
+            
+            <div class="post-meta">
+                <span class="user">@<%= post.username %></span>
+                <span class="id">Post ID: <%= post.id %></span>
+            </div>
 
-    <p>post id: <%=post.id %></p>
-    <p>post username: <%=post.username %></p>
-
-    <form action="/posts/<%= post.id %>?_method=PATCH" method="POST">
-        <textarea name="content"><%= post.content %></textarea>
-        <button type="submit">Update</button>
-    </form>
-
+            <form action="/posts/<%= post.id %>?_method=PATCH" method="POST">
+                <div class="form-group">
+                    <label for="content">Edit content</label>
+                    <textarea name="content" id="content" placeholder="What do you want to share?"><%= post.content %></textarea>
+                </div>
+                
+                <div style="display: flex; gap: 1.5rem; align-items: center;">
+                    <button type="submit">Update Post</button>
+                    <a href="/posts" class="cancel-btn">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

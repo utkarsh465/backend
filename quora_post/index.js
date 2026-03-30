@@ -23,22 +23,26 @@ let posts = [
     {
         id: uuidv4(),
         username: "utkarsh",
-        content: "hello everyone"
+        content: "hello everyone",
+        image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80"
     },
     {
         id: uuidv4(),
         username: "raj",
-        content: "hello everyone"
+        content: "Coding is fun!",
+        image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80"
     },
     {
         id: uuidv4(),
         username: "harsh",
-        content: "hello everyone"
+        content: "Look at this view!",
+        image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&q=80"
     },
     {
         id: uuidv4(),
         username: "shilpee",
-        content: "hello everyone"
+        content: "Enjoying the nature.",
+        image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80"
     }
 ]
 
@@ -56,10 +60,10 @@ app.get("/posts/new", (req, res) => {
 })
 
 app.post("/posts", (req, res) => {
-    let { username, content } = req.body;
+    let { username, content, image } = req.body;
     // console.log(username,content);
     let id = uuidv4();
-    posts.push({ id, username, content });
+    posts.push({ id, username, content, image });
     res.redirect("/posts");
 })
 

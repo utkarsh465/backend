@@ -20,7 +20,12 @@
             <div class="post">
                 <span class="user">@<%= post.username %></span>
                 <p class="content"><%= post.content %></p>
-                <div style="margin-top: 1rem;">
+                <% if(post.image) { %>
+                    <div class="post-image-container">
+                        <img src="<%= post.image %>" alt="Post image" class="post-image">
+                    </div>
+                <% } %>
+                <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
                     <form action="/posts/<%= post.id %>" method="get" style="display: inline;">
                         <button type="submit">View Post</button> <br /><br />
                     </form>

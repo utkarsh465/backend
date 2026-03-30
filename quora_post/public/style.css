@@ -127,3 +127,59 @@ button:hover {
 button:active {
     transform: scale(0.98);
 }
+
+/* Post Meta Styles */
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.post-meta .user {
+    color: var(--primary-color);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+.post-meta .id {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-family: monospace;
+}
+
+.cancel-btn {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.cancel-btn:hover {
+    color: var(--text-main);
+}
+
+/* Image Styles */
+.post-image-container {
+    margin-top: 1rem;
+    width: 100%;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.post-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    max-height: 400px;
+    transition: transform 0.3s ease;
+}
+
+.post-image:hover {
+    transform: scale(1.02);
+}
