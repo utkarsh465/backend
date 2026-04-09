@@ -60,20 +60,10 @@ app.get("/posts/new", (req, res) => {
 })
 
 app.post("/posts", (req, res) => {
-    let { courseCode,
-    courseName,
-    semester,
-    instructor,
-    classRoom,
-    dayOfWeek,
-    startTime,
-    endTime,
-    credits,
-    capacity,
-    academicYear } = req.body;
+    let { username, content, image } = req.body;
     // console.log(username,content);
     let id = uuidv4();
-    posts.push({ id, courseCode, courseName, semester, instructor, classRoom, dayOfWeek, startTime, endTime, credits, capacity, academicYear });
+    posts.push({ id, username, content, image });
     res.redirect("/posts");
 })
 
